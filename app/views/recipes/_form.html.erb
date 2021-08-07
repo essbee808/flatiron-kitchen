@@ -5,6 +5,7 @@
 </p>
 <p>
 <!-- display all existing ingredients with checkboxes -->
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
 </p>
     <%= f.submit %>
 <% end %>
