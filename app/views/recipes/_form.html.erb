@@ -1,11 +1,18 @@
-<%= form_for(@recipe) do |f| %>
-<p>
-    <%= f.label :name %>
+<%= form_for recipe do |f| %>
+
+<div class="field">
+    <%= f.label :name, 'Name:' %>
     <%= f.text_field :name %>
-</p>
-<p>
+</div>
+
+<div class="field">
 <!-- display all existing ingredients with checkboxes -->
-    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
-</p>
+    <% if !ingredients.blank? %>
+        <%= f.label :ingredients, 'Ingredients:' %><br>
+        <%= f.collection_check_boxes :ingredient_ids, ingredients, :id, :name %>
+    <% end %>
+</div>
+
     <%= f.submit %>
-<% end %>
+ <% end %>
+  
